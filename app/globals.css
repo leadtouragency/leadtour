@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-green-wp: #50c878;
+  --bg-wp-c3: #c3f4d1;
+  --colorWhite: #fff;
+  --color914: #fcb914;
+  --nunitoSans: "Nunito Sans";
+  --plan: #1e90ff;
+  --plan2: rgba(30, 144, 255, 0.2);
+  --colorDark: #2a2a2a;
+  --colorOrange: #ff6f61;
+  --colorOrange2: #ffe2df;
+  --background: #fcfcfd;
+  --colorBlue: #627ca7;
+  --colorF5: #f5f5f5;
+  --borderDF: #ffe2df;
+  --gray100: rgba(243, 244, 246, 0.1);
+  --gray200: rgba(243, 244, 246, 0.2);
+  --colorFF: #ebf5ff;
+  --destibg: #eef6ff;
+  --colorF9: #f9fafb;
+  --menu: #044688;
+  --borderColor: #d0d5dd;
+  --borderCtg: #d7e9ff;
+}
+
+@layer base {
+  @font-face {
+    font-family: "NunitoSans-VariableFont";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../public/fonts/NunitoSans-VariableFont.woff2") format("woff2");
+  }
+}
+
+/* html{
+  font-size: 62.5%;
+} */
+html,
+body {
+  font-family: "NunitoSans-VariableFont", sans-serif;
+  overflow-x: hidden !important;
+  background-color: var(--background);
+}
+html.hidden {
+  overflow: hidden;
+}
+.header-transition {
+  transition: all 0.3s linear;
+}
+
+.destination::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 144, 255, 0.8);
+}
+
+.css-d30rdu {
+  border: none;
+  outline: none;
+}
+
+.buttonTrigger[aria-selected="true"] {
+  background-color: var(--colorOrange);
+  color: var(--colorWhite);
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.catSelect[aria-selected="true"] div {
+  background-color: var(--colorOrange);
+  outline: none;
+  box-shadow: none;
+}
+.catSelect[aria-selected="true"] div h3 {
+  color: var(--colorFF);
+}
+
+.buttonTrigger[aria-selected="true"] h3 {
+  color: var(--colorWhite);
+}
+
+.buttonTrigger[aria-selected="true"] a {
+  color: var(--colorWhite);
+}
+
+.buttonTrigger {
+  border: 1px solid var(--borderDF);
+  transition: all 0.3s linear;
+}
+
+.buttonTrigger::before {
+  content: none;
+  border: none;
+  outline: none;
+}
+
+.buttonTrigger {
+  outline: none;
+}
+
+.css-yamsmp {
+  --tabs-indicator-shadow: none;
+  --tabs-indicator-bg: none;
+}
+
+.icons:not(:last-child) {
+  @apply border-r border-[--bg-green-wp];
+}
+
+.border-service:nth-child(odd) {
+  background: linear-gradient(to bottom, #1e90ff, #ff6f61);
+  padding: 1px;
+}
+
+.border-service:nth-child(even) {
+  background: linear-gradient(to top, #1e90ff, #ff6f61);
+  padding: 1px;
+}
+
+.langbtn:not(:last-child) {
+  border-bottom: 1px solid #044688;
+}
+
+.transitioncss {
+  transition: all 0.3s linear;
+}
+
+.langbefore::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 0;
+  width: 1px;
+  height: 78%;
+  background-color: rgba(98, 124, 167, 0.5);
+}
+
+.imgbefore::before {
+  height: 90%;
+}
+
+.mobile-menu-overlay {
+  transition: all 0.4s;
+  visibility: hidden;
+  opacity: 0;
+  background-color: #191919bf;
+}
+
+.mobile-menu-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.destinationLi:hover .bottomMenu {
+  visibility: visible;
+  opacity: 1;
+}
+
+.check1,
+.check2 {
+  /* Görünürlüğü kaldır ama erişilebilirliği koru */
+  opacity: 0;
+  position: absolute; /* Akıştan çıkar */
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  /* Bazen eski tarayıcılar için appearance: none gerekebilir */
+  /* -webkit-appearance: none; */
+  /* appearance: none; */
+}
+
+/* 2. Özel Checkbox Görünümünü Oluştur (Label Kullanarak) */
+.check1-label,
+.check2-label {
+  position: relative; /* İçine ::after yerleştirmek için */
+  display: inline-block; /* Boyut ve hizalama için */
+  width: 18px; /* İstediğin boyut */
+  height: 18px; /* İstediğin boyut */
+  background-color: #fff; /* İşaretlenmemiş arka plan */
+  border: 1px solid var(--colorOrange); /* İşaretlenmemiş kenarlık */
+  border-radius: 3px; /* Köşe yuvarlaklığı (isteğe bağlı) */
+  cursor: pointer; /* Tıklanabilir olduğunu belirt */
+  vertical-align: middle; /* Metinle hizalamak için */
+  outline: none;
+  margin-right: 5px; /* Metinden biraz ayırmak için */
+  transition: background-color 0.2s ease, border-color 0.2s ease; /* Geçiş efekti */
+}
+
+/* 3. Checkbox İşaretlendiğinde Label'ın Arka Planını Değiştir */
+.check1:checked + .check1-label,
+.check2:checked + .check2-label {
+  /* BURASI İSTEDİĞİN RENK! */
+  background-color: #ff6f61; /* Örnek: Kırmızı */
+  border: none; /* Kenarlık rengini de uyumlu yapabilirsin */
+}
+
+/* 4. İçine İşaret (Tick) Ekleyelim (::after kullanarak) */
+.check1-label::after,
+.check2-label::after {
+  content: ""; /* Pseudo-element için zorunlu */
+  position: absolute;
+  display: none; /* Başlangıçta gizli */
+
+  /* İşaretin pozisyonu ve boyutu (kutunun içine göre ayarla) */
+  left: 6px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  outline: none;
+  /* İşaretin şekli (border kullanarak) */
+  border: solid white; /* İşaretin rengi (arka plana göre) */
+  border-width: 0 2px 2px 0; /* Sağ ve alt kenarlıkla L şekli */
+
+  /* İşareti döndürerek tik (✓) şekli ver */
+  transform: rotate(45deg);
+}
+
+/* 5. Checkbox İşaretlendiğinde İşareti Göster */
+.check1:checked + .check1-label::after,
+.check2:checked + .check2-label::after {
+  display: block; /* İşareti görünür yap */
+}
+
+/* (İsteğe Bağlı) Odaklanma Stili (Erişilebilirlik için) */
+.check1:focus + .check1-label,
+.check2:focus + .check2-label {
+  outline: none;
+}
+
+/* (İsteğe Bağlı) Wrapper Stili */
+.custom-checkbox-wrapper {
+  display: flex; /* Elemanları yan yana hizalamak için */
+  align-items: center; /* Dikeyde ortalamak için */
+  padding: 5px 0; /* Biraz boşluk */
+}
+
+.sharedWp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(195, 244, 209, 0.4);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Renkleri ters çevirir */
+  opacity: 1;
+  cursor: pointer;
+}
+
+.hoverMenu:not(:last-child) {
+  @apply border-b border-[--plan2];
+}
+@media (min-width: 1199px) {
+  .bottomMenu li:hover h3 {
+    transform: translateX(10px);
+  }
+  .ulMenu {
+    @apply absolute top-8 -left-6 border-[2px] z-40 w-[300px] rounded-lg px-4 py-2 capitalize text-xl;
+  }
+}
+
+.grid_destination .grid_destination_child:nth-child(1) {
+  grid-row: span 2 / span 2;
+}
+
+.grid_destination .grid_destination_child:nth-child(2) {
+  grid-row: span 3 / span 3;
+}
+
+.grid_destination .grid_destination_child:nth-child(3) {
+  grid-row: span 2 / span 2;
+}
+
+.grid_destination .grid_destination_child:nth-child(4) {
+  grid-row: span 3 / span 3;
+}
+
+.grid_destination .grid_destination_child:nth-child(5) {
+  grid-row: span 3 / span 3;
+  grid-row-start: 3;
+}
+.grid_destination .grid_destination_child:nth-child(6) {
+  grid-row: span 2 / span 2;
+  grid-column-start: 2;
+  grid-row-start: 4;
+}
+.grid_destination .grid_destination_child:nth-child(7) {
+  grid-row: span 3 / span 3;
+  grid-column-start: 3;
+  grid-row-start: 3;
+}
+.team_before::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 26%;
+
+  background: linear-gradient(
+    183deg,
+    rgba(213, 226, 232, 0.5) 0%,
+    rgba(250, 240, 240, 0.5) 100%,
+    rgba(237, 221, 83, 0.5) 100%
+  );
+}
+
+/* 
+
+.react-datepicker {
+  font-size: 12px !important;
+}
+
+.react-datepicker__current-month,
+.react-datepicker-time__header,
+.react-datepicker-year-header {
+  font-size: 1.3rem !important;
+}
+
+.react-datepicker__header {
+  padding: 15px !important;
+}
+
+
+
+.react-datepicker__day-name {
+  font-size: 10px !important;
+}
+
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  width: 2.6rem !important;
+}
+
+.react-datepicker__month {
+  padding: 12px !important;
+}
+
+h2.react-datepicker__current-month {
+  margin-bottom: 10px !important;
+} */
+.user_select select {
+  background-color: var(--colorF9);
+  margin: 10px 0;
+}
+.react-datepicker-wrapper {
+  width: 100% !important;
+}
