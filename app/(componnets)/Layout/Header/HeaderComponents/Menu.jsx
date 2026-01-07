@@ -22,7 +22,7 @@ const Menu = ({
           </span>
         </div>
         <ul
-          className={`absolute top-8 -left-6  xl:static bg-[#fff]  xl:bg-transparent  header-transition
+          className={`absolute top-8 -left-6  xl:static border border-[#ccc] bg-[#fff]  xl:bg-transparent  header-transition
            z-40 w-[200px] rounded-lg px-4 py-2 capitalize text-xl flex flex-col gap-3 xl:gap-0 xl:m-0
            opacity-0 invisible bottomMenu xl:w-full `}
         >

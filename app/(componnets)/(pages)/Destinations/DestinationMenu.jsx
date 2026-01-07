@@ -11,6 +11,8 @@ const DestinationMenu = ({
   per_person,
   checkAll,
   explore_destinations,
+  secretimg,
+  secretimg2,
 }) => {
   const [activeTabName, setActiveTabName] = useState(null);
   const [isClient, setIsClient] = useState(false);
@@ -76,7 +78,7 @@ const DestinationMenu = ({
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="bg-[--destibg] pt-48 2xl:pt-36 lg:pt-20 ">
       <Provider>
         <Tabs.Root
           value={activeTabName}
@@ -95,22 +97,29 @@ const DestinationMenu = ({
           <h3 className="text-[--colorOrange] text-center text-7xl 2xl:text-5xl lg:text-3xl mb-10 xl:mb-5 font-bold">
             {explore_destinations}
           </h3>
-          <Tabs.List className=" flex items-center justify-center gap-4 lg:gap-2  flex-wrap">
-            {data_desti?.map((item, i) => {
-              return (
-                <Tabs.Trigger
-                  key={item?.id || i}
-                  value={item?.title}
-                  className="buttonTrigger text-[--colorOrange] px-8 py-2 border border-[--borderDF] h-full flex items-center justify-center rounded-lg 
-                  hover:bg-[--colorOrange] hover:text-[--colorWhite]
-                  "
-                >
-                  {item?.title}
-                </Tabs.Trigger>
-              );
-            })}
+          <Tabs.List
+            className={`flex items-center justify-center gap-4 lg:gap-2  flex-wrap ${
+              secretimg === 0 ? "pb-[60px]" : ""
+            }`}
+          >
+            {data_desti
+              // FİLTRELEME BURADA YAPILIYOR
+              ?.filter((item) => item?.products?.length > 0)
+              .map((item, i) => {
+                return (
+                  <Tabs.Trigger
+                    key={item?.id || i}
+                    value={item?.title}
+                    className="buttonTrigger text-[--colorOrange] px-8 py-2 border border-[--borderDF] h-full flex items-center justify-center rounded-lg 
+        hover:bg-[--colorOrange] hover:text-[--colorWhite]
+        "
+                  >
+                    {item?.title}
+                  </Tabs.Trigger>
+                );
+              })}
           </Tabs.List>
-          {activeTabImg && (
+          {secretimg === 1 && activeTabImg && (
             <div className="flex justify-center items-center mt-16 mb-16 lg:mt-4 lg:mb-0 h-[370px] lg:px-5">
               <img
                 key={activeTabImg}
@@ -123,6 +132,7 @@ const DestinationMenu = ({
               />
             </div>
           )}
+
           <div className=" bg-[--background]">
             {data_desti?.map((item, i) => {
               const itemToSlug = toSlug(item?.title);
@@ -150,7 +160,7 @@ const DestinationMenu = ({
             })}
           </div>
 
-          {activeTabImg2 && (
+          {secretimg2 === 1 && activeTabImg2 && (
             <div className="bg-[--colorWhite] pt-12">
               <img
                 key={activeTabImg2}
@@ -158,7 +168,7 @@ const DestinationMenu = ({
                 alt={`${activeTabName || "Destination"} Map`}
                 width={1000}
                 height={400}
-                className="w-full h-[500px] object-cover"
+                className="w-full h-auto object-cover"
               />
             </div>
           )}

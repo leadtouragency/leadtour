@@ -19,6 +19,8 @@ const HomePage = ({
   data_service,
   data_letus,
   recommed,
+  secret,
+  stils,
 }) => {
   const per_person = tr?.per_person;
   const checkAll = tr?.checkAll;
@@ -36,47 +38,65 @@ const HomePage = ({
 
   return (
     <>
-      <HomeSlider tr={tr} data_slayder={data_slayder} code={code} />
-      <HomeDestination
-        data_category={data_category}
-        code={code}
-        top_destinations={top_destinations}
-        looking_for_something={looking_for_something}
-        looking_for_something_link_text={looking_for_something_link_text}
-        looking_for_something_long={looking_for_something_long}
-      />
-      <PackagesPage
-        data_package={data_package}
-        code={code}
-        per_person={per_person}
-        checkAll={checkAll}
-        find_your={find_your}
-      />
-      <Choose
-        img={`${process.env.NEXT_PUBLIC_PICTURE}/${data_why?.image2}`}
-        data_why={data_why}
-      />
-      <HomeServices
-        travel_services={travel_services}
-        data_service={data_service}
-      />
-      <HomeMountain
-        data_letus={data_letus}
-        code={code}
-        mountain_text1={mountain_text1}
-        mountain_text2={mountain_text2}
-        mountain_link1={mountain_link1}
-        mountain_link2={mountain_link2}
-      />
-      <HomeGuests
-        recommed={recommed}
-        what_our_guests_says={what_our_guests_says}
-      />
-      <Connect
-        code={code}
-        follow_us_instagram={follow_us_instagram}
-        advantages={advantages}
-      />
+      {secret?.section1 === 1 && (
+        <HomeSlider tr={tr} data_slayder={data_slayder} code={code} />
+      )}
+      {secret?.section2 === 1 && (
+        <HomeDestination
+          stils2={stils?.section2}
+          data_category={data_category}
+          code={code}
+          top_destinations={top_destinations}
+          looking_for_something={looking_for_something}
+          looking_for_something_link_text={looking_for_something_link_text}
+          looking_for_something_long={looking_for_something_long}
+        />
+      )}
+      {secret?.section3 === 1 && (
+        <PackagesPage
+          data_package={data_package}
+          code={code}
+          per_person={per_person}
+          checkAll={checkAll}
+          find_your={find_your}
+        />
+      )}
+      {secret?.section4 === 1 && (
+        <Choose
+          img={`${process.env.NEXT_PUBLIC_PICTURE}/${data_why?.image2}`}
+          data_why={data_why}
+        />
+      )}
+      {secret?.section5 === 1 && (
+        <HomeServices
+          travel_services={travel_services}
+          data_service={data_service}
+        />
+      )}
+      {secret?.section6 === 1 && (
+        <HomeMountain
+          data_letus={data_letus}
+          code={code}
+          mountain_text1={mountain_text1}
+          mountain_text2={mountain_text2}
+          mountain_link1={mountain_link1}
+          mountain_link2={mountain_link2}
+        />
+      )}
+      {secret?.section7 === 1 && (
+        <HomeGuests
+          recommed={recommed}
+          what_our_guests_says={what_our_guests_says}
+        />
+      )}
+
+      {secret?.section8 === 1 && (
+        <Connect
+          code={code}
+          follow_us_instagram={follow_us_instagram}
+          advantages={advantages}
+        />
+      )}
     </>
   );
 };

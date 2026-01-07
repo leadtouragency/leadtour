@@ -1,12 +1,17 @@
 import HomePage from "@/app/(componnets)/(pages)/Home/HomePage";
 import Footer from "@/app/(componnets)/Layout/Footer/Footer";
 import Header from "@/app/(componnets)/Layout/Header/Header";
-import { fetchData, fetchTranslations } from "@/app/(fetchData.)/fetchData";
+import {
+  fetchData,
+  fetchData2,
+  fetchTranslations,
+} from "@/app/(fetchData.)/fetchData";
 
 const getData = async (params) => {
   const main = await fetchData(params?.code, "main_page");
+  const secret = await fetchData2("home_sections");
   const tr = await fetchTranslations(params?.code);
-  return { main, tr };
+  return { main, tr, secret };
 };
 
 export async function generateMetadata({ params }) {
@@ -42,14 +47,13 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function page({ params }) {
-  const { main, tr } = await getData(params);
+  const { main, tr, secret } = await getData(params);
   const header_1 = tr?.header_1;
   const header_2 = tr?.header_2;
   const header_3 = tr?.header_3;
   const header_4 = tr?.header_4;
   const header_5 = tr?.header_5;
   const follow_us_instagram = tr?.follow_us_instagram;
-
 
   return (
     <>
@@ -74,6 +78,8 @@ export default async function page({ params }) {
         follow_us_instagram={follow_us_instagram}
         data_service={main?.service}
         data_letus={main?.letUs}
+        secret={secret?.sections}
+        stils={secret?.stils}
         tr={tr}
       />
       <Footer />

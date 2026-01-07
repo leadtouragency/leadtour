@@ -29,7 +29,7 @@ const Choose = ({ img = "", data_why }) => {
     },
   ];
   return (
-    <section className="mt-28 lg:mt-10">
+    <section className="mt-8 lg:mt-4">
       <div className="top-section bg-[--colorFF] grid grid-cols-12 gap-4 rounded-3xl px-8 py-8 lg:px-4 md:px-4">
         <div className="col-span-6 lg:col-span-12 relative">
           <Image

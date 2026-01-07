@@ -39,9 +39,10 @@ const ServerPackage = ({
   per_person,
   checkAll,
   published_on = "",
+  hiddenBtn = "",
 }) => {
   return (
-    <div className="grid gap-6 grid-cols-12  mt-6 lg:mt-2 lg:px-4 ">
+    <div className="grid gap-6 grid-cols-12  mt-6 lg:mt-2 lg:px-4 pb-[30px]">
       {products?.map((product, i) => {
         const blogDate = product?.created_at;
         let date = new Date(blogDate);
@@ -138,7 +139,7 @@ const ServerPackage = ({
                       </div>
                     </div>
                   </div>
-                  <div className="">
+                  <div className={hiddenBtn}>
                     <SharedLink
                       btnText={checkAll}
                       hrefTo={`${hrefTo}/${product?.id}/${itemToSlug}`}

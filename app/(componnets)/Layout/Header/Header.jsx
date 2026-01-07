@@ -174,7 +174,7 @@ const Header = ({
         <div className="col-span-1 xl:col-span-12  xl:flex xl:justify-between ">
           <div className="flex items-center h-full">
             <div
-              className={` relative langbefore imgbefore
+              className={` relative  imgbefore
                 pr-6 1xl:pr-2`}
             >
               <Link href={`/${code}`}>

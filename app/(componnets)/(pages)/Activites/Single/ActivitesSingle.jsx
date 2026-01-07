@@ -45,6 +45,7 @@ const ActivitesSingle = ({
   plan_ok,
   plan_error,
   include_fees,
+  secret,
 }) => {
   const newprice = {
     azn_price: data?.azn_price,
@@ -63,13 +64,19 @@ const ActivitesSingle = ({
         <GlobalTopImageComponent
           img={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.cover}`}
           cityName={data?.name}
+          cityName2={data?.name}
           wpText={whatsapp_booking}
-          wpLink="/az"
+          wpLink={code}
           text2={starting_from}
           price="$59/per person"
           text3={data?.tour_day}
+          secret={secret?.section24}
         />
-        <div className="grid grid-cols-12 gap-6 px-24 mb-16 1xl:px-10 lg:px-4">
+        <div
+          className={`grid grid-cols-12 gap-6 px-24 mb-16 1xl:px-10 lg:px-4 ${
+            secret?.section24 === 0 ? "mt-[40px]" : ""
+          }`}
+        >
           <SinglePageGrid1
             h3text={description_tour}
             ptext={data?.tour_ltineray}
@@ -88,6 +95,7 @@ const ActivitesSingle = ({
             what5={data?.tour_contact}
             numberText={whatsApp_tour}
             accordionsData={data?.faqs}
+            secret={secret}
           />
           <div className="col-span-4 xl:col-span-12">
             <div className="flex flex-col bg-[--colorWhite] shadow rounded-xl px-4 py-6 h-max">
@@ -126,19 +134,21 @@ const ActivitesSingle = ({
             <div className="bg-[--colorWhite] shadow rounded-xl mt-8 overflow-hidden">
               <SharedWhatsApp
                 text={quick_booking}
-                btnLink={"/"}
+                btnLink={code}
                 btnText={chat_whatsApp}
               />
             </div>
           </div>
         </div>
-        <div className="px-8 lg:px-0">
-          <Connect
-            advantages={advantages}
-            code={code}
-            follow_us_instagram={follow_us_instagram}
-          />
-        </div>
+        {secret?.section8 === 1 && (
+          <div className="px-8 lg:px-0">
+            <Connect
+              advantages={advantages}
+              code={code}
+              follow_us_instagram={follow_us_instagram}
+            />
+          </div>
+        )}
       </div>
     </section>
   );

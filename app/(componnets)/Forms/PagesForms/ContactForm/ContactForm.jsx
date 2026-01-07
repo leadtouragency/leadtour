@@ -232,7 +232,7 @@ export const olkeler = [
   { id: 224, alpha3Code: "ARE", alpha2Code: "AE", callingCode: "+971" },
   { id: 225, alpha3Code: "GBR", alpha2Code: "GB", callingCode: "+44" },
   { id: 226, alpha3Code: "USA", alpha2Code: "US", callingCode: "+1" },
-  { id: 237, alpha3Code: "URY", alpha2Code: "UY", callingCode: "+598" },
+  { id: 227, alpha3Code: "URY", alpha2Code: "UY", callingCode: "+598" },
   { id: 228, alpha3Code: "UZB", alpha2Code: "UZ", callingCode: "+998" },
   { id: 229, alpha3Code: "VUT", alpha2Code: "VU", callingCode: "+678" },
   { id: 230, alpha3Code: "VEN", alpha2Code: "VE", callingCode: "+58" },
@@ -313,7 +313,6 @@ const ContactForm = ({
             title: tr?.thank_you,
             text: tr?.thank_you_2,
             confirmButtonText: tr?.success_ok,
-            customClass: { confirmButton: "text-black-700" },
           });
           setFormContact({
             ad_soyad: "",
@@ -386,9 +385,7 @@ const ContactForm = ({
               </div>
               <div className="col-span-6 h-full overflow-hidden  lg:col-span-12">
                 <label htmlFor="message" className="flex h-full flex-col">
-                  <h3 className="text-[--colorBlue] mb-2 mt-4">
-                    {your_message}
-                  </h3>
+                  <h3 className="text-[--colorBlue] mb-2">{your_message}</h3>
                   <textarea
                     name="mesaj"
                     id="mesaj"

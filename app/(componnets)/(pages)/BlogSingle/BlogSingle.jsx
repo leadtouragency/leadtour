@@ -23,6 +23,7 @@ const BlogSingle = ({
   looking_for_something,
   looking_for_something_long,
   looking_for_something_link_text,
+  secret,
 }) => {
   const socials = [
     {
@@ -47,14 +48,16 @@ const BlogSingle = ({
     },
   ];
   return (
-    <section>
+    <section className={secret?.section25 === 0 ? "mt-[100px]" : ""}>
       <div className="mx-8 py-8 lg:mx-0">
-        <div className="">
+        {secret?.section25 === 1 && (
           <GlobalImage
+            secret={secret?.section25}
             img={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.cover}`}
             imgClass="h-[800px] 1xl:h-[600px] lg:h-[600px] md:h-[400px]"
           />
-        </div>
+        )}
+
         <div className="px-24 mt-10 mb-10 1xl:px-6 lg:px-4">
           <div className="flex justify-between items-center lg:flex-col lg:gap-6 lg:items-start">
             <div className="flex items-center  gap-6 lg:justify-between w-full">
@@ -116,11 +119,14 @@ const BlogSingle = ({
                 className="text-[--colorBlue] mt-4 mb-10"
                 dangerouslySetInnerHTML={{ __html: `${data?.head_text_2}` }}
               />
+              {secret?.section26 === 1 && (
+                <GlobalImage
+                  secret={secret?.section26}
+                  img={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.image_2}`}
+                  imgClass="h-[800px] 1xl:h-[600px] lg:h-[600px] md:h-[400px]"
+                />
+              )}
 
-              <GlobalImage
-                img={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.image_2}`}
-                imgClass="h-[800px] 1xl:h-[600px] lg:h-[600px] md:h-[400px]"
-              />
               <div className="bg-[--colorWhite] p-4 mt-6 rounded-xl">
                 <HeadText
                   textColor={`plan`}
@@ -133,7 +139,7 @@ const BlogSingle = ({
                 />
               </div>
 
-              <div>
+              {secret?.section15 === 1 && (
                 <BlogSingleMap
                   video={data?.blog_video}
                   map={data?.blog_map}
@@ -144,7 +150,7 @@ const BlogSingle = ({
                   img={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.image_3}`}
                   looking_for_something={looking_for_something}
                 />
-              </div>
+              )}
 
               <div className="mt-6">
                 <HeadText
@@ -188,12 +194,13 @@ const BlogSingle = ({
                   <div className="mt-8">
                     <SahredSocials data={socials} />
                   </div>
-
-                  <Connect
-                    code={code}
-                    follow_us_instagram={follow_us_instagram}
-                    advantages={advantages}
-                  />
+                  {secret?.section8 === 1 && (
+                    <Connect
+                      code={code}
+                      follow_us_instagram={follow_us_instagram}
+                      advantages={advantages}
+                    />
+                  )}
                 </div>
               </div>
             </div>

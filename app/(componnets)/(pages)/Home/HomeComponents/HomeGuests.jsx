@@ -10,7 +10,7 @@ const HomeGuests = ({ recommed, what_our_guests_says }) => {
 
   return (
     <section
-      className="mt-36 mb-36 lg:mb-10 2xl:mt-16 lg:mt-12"
+      className="mt-8 mb-20 lg:mb-10 2xl:mt-6 lg:mt-12"
       ref={containerRef}
     >
       <h3 className="text-[--colorOrange] text-center text-5xl 2xl:text-4xl lg:text-3xl mb-12">

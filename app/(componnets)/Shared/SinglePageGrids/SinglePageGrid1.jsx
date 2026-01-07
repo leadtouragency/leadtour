@@ -18,6 +18,7 @@ const SinglePageGrid1 = ({
   headText6,
   what5,
   accordionsData,
+  secret = "",
 }) => {
   return (
     <>
@@ -63,64 +64,77 @@ const SinglePageGrid1 = ({
             ))}
           </ul>
         </div>
-        <div className="section3 bg-[--colorWhite] shadow rounded-xl px-8 py-6 lg:px-3  lg:py-3 mt-6">
-          <HeadText
-            textColor={`bg-green-wp`}
-            text={headText2}
-            customClass="text-4xl 1xl:text-3xl  lg:text-2xl md:text-xl"
-          />
-          <div
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: `${what1}` }}
-          />
-        </div>
-        <div className="section4 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
-          <HeadText
-            textColor={`colorOrange`}
-            text={headText3}
-            customClass="text-4xl 1xl:text-3xl lg:text-2xl md:text-xl"
-          />
-          <div
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: `${what2}` }}
-          />
-        </div>
-        <div className="section5 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
-          <HeadText
-            textColor={`plan`}
-            text={headText4}
-            customClass="text-4xl 1xl:text-3xl lg:text-2xl md:text-xl"
-          />
-          <div
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: `${what3}` }}
-          />
-        </div>
-        <div className="section5 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
-          <HeadText
-            textColor={`plan`}
-            text={headText5}
-            customClass="text-4xl 1xl:text-3xl lg:text-2xl md:text-xl"
-          />
-          <div
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: `${what4}` }}
-          />
-        </div>
-        <div className="section6 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
-          <HeadText
-            textColor={`plan`}
-            text={headText6}
-            customClass="text-4xl lg:text-2xl md:text-xl"
-          />
-          <div
-            className="mt-4"
-            dangerouslySetInnerHTML={{ __html: `${what5}` }}
-          />
-        </div>
-        <div className="section7 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
-          <SingleAccordion data={accordionsData} />
-        </div>
+        {secret?.section17 === 1 && (
+          <div className="section3 bg-[--colorWhite] shadow rounded-xl px-8 py-6 lg:px-3  lg:py-3 mt-6">
+            <HeadText
+              textColor={`bg-green-wp`}
+              text={headText2}
+              customClass="text-4xl 1xl:text-3xl  lg:text-2xl md:text-xl"
+            />
+            <div
+              className="mt-4"
+              dangerouslySetInnerHTML={{ __html: `${what1}` }}
+            />
+          </div>
+        )}
+        {secret?.section18 === 1 && (
+          <div className="section4 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
+            <HeadText
+              textColor={`colorOrange`}
+              text={headText3}
+              customClass="text-4xl 1xl:text-3xl lg:text-2xl md:text-xl"
+            />
+            <div
+              className="mt-4"
+              dangerouslySetInnerHTML={{ __html: `${what2}` }}
+            />
+          </div>
+        )}
+        {secret?.section19 === 1 && (
+          <div className="section5 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
+            <HeadText
+              textColor={`plan`}
+              text={headText4}
+              customClass="text-4xl 1xl:text-3xl lg:text-2xl md:text-xl"
+            />
+            <div
+              className="mt-4"
+              dangerouslySetInnerHTML={{ __html: `${what3}` }}
+            />
+          </div>
+        )}
+
+        {secret?.section20 === 1 && (
+          <div className="section5 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
+            <HeadText
+              textColor={`plan`}
+              text={headText5}
+              customClass="text-4xl 1xl:text-3xl lg:text-2xl md:text-xl"
+            />
+            <div
+              className="mt-4"
+              dangerouslySetInnerHTML={{ __html: `${what4}` }}
+            />
+          </div>
+        )}
+        {secret?.section21 === 1 && (
+          <div className="section6 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3  lg:py-3">
+            <HeadText
+              textColor={`plan`}
+              text={headText6}
+              customClass="text-4xl lg:text-2xl md:text-xl"
+            />
+            <div
+              className="mt-4"
+              dangerouslySetInnerHTML={{ __html: `${what5}` }}
+            />
+          </div>
+        )}
+        {secret?.section22 === 1 && accordionsData?.length > 0 && (
+          <div className="section7 bg-[--colorWhite] shadow rounded-xl px-8 py-6 mt-6 lg:px-3 lg:py-3">
+            <SingleAccordion data={accordionsData} />
+          </div>
+        )}
       </div>
     </>
   );

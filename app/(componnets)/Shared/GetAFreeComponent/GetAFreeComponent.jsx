@@ -41,7 +41,7 @@ const GetAFreeComponent = ({
             <h2 className="text-[--colorWhite] text-4xl xl:text-xl lg:text-lg">
               {h2text}
             </h2>
-            <p
+            <div
               className="text-[--colorWhite] xl:text-sm "
               dangerouslySetInnerHTML={{ __html: `${ptext}` }}
             />

@@ -11,7 +11,7 @@ const HomeMountain = ({
   code,
 }) => {
   return (
-    <section className=" mt-36  lg:mt-16">
+    <section className=" mt-8 lg:mt-6">
       <Image
         src={`${process.env.NEXT_PUBLIC_PICTURE}/${data_letus?.image1}`}
         width={1000}

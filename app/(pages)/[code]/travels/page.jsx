@@ -1,16 +1,21 @@
 import BlogsPage from "@/app/(componnets)/(pages)/Blogs/BlogsPage";
 import Footer from "@/app/(componnets)/Layout/Footer/Footer";
 import Header from "@/app/(componnets)/Layout/Header/Header";
-import { fetchData, fetchTranslations } from "@/app/(fetchData.)/fetchData";
+import {
+  fetchData,
+  fetchData2,
+  fetchTranslations,
+} from "@/app/(fetchData.)/fetchData";
 
 const getData = async (params) => {
   const data = await fetchData(params?.code, `travel`);
   const tr = await fetchTranslations(params?.code);
-  return { data, tr };
+  const secret = await fetchData2("home_sections");
+  return { data, tr, secret };
 };
 
 export default async function page({ params }) {
-  const { data, tr } = await getData(params);
+  const { data, tr, secret } = await getData(params);
   const header_1 = tr?.header_1;
   const header_2 = tr?.header_2;
   const header_3 = tr?.header_3;
@@ -66,6 +71,7 @@ export default async function page({ params }) {
         published_on={published_on}
         featured_blogs={featured_blogs}
         tr={tr}
+        secret={secret?.sections}
       />
 
       <Footer />

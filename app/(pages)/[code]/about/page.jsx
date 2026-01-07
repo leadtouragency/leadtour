@@ -1,16 +1,21 @@
 import AboutPage from "@/app/(componnets)/(pages)/About/AboutPage";
 import Footer from "@/app/(componnets)/Layout/Footer/Footer";
 import Header from "@/app/(componnets)/Layout/Header/Header";
-import { fetchData, fetchTranslations } from "@/app/(fetchData.)/fetchData";
+import {
+  fetchData,
+  fetchData2,
+  fetchTranslations,
+} from "@/app/(fetchData.)/fetchData";
 
 const getData = async (params) => {
   const about = await fetchData(params?.code, "about");
+  const secret = await fetchData2("home_sections");
   const tr = await fetchTranslations(params?.code);
-  return { about, tr };
+  return { about, tr, secret };
 };
 
 export default async function page({ params }) {
-  const { about, tr } = await getData(params);
+  const { about, tr, secret } = await getData(params);
   const head_title = tr?.more_from_lead_tour;
   const meet_our_team = tr?.meet_our_team;
   const meet_our_team_long = tr?.meet_our_team_long;
@@ -35,6 +40,7 @@ export default async function page({ params }) {
       <AboutPage
         head_title={head_title}
         code={params?.code}
+        secret={secret?.sections  }
         why_data={about?.why}
         data_process={about?.process}
         data_about={about?.about}

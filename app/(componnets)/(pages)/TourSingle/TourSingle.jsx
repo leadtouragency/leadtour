@@ -50,6 +50,7 @@ const TourSingle = ({
   plan_success,
   plan_ok,
   plan_error,
+  secret,
 }) => {
   const originalTags = data?.tour_tags;
 
@@ -72,14 +73,16 @@ const TourSingle = ({
     <section className="text-black">
       <div>
         <GlobalTopImageComponent
-          img="/fakedata/t/big_img.png"
+          img={`${process.env.NEXT_PUBLIC_PICTURE}/${data?.cover}`}
           cityName={data?.name}
+          cityName2={data?.name}
           text1={``}
           wpText={whatsapp_booking}
           wpLink={data?.tour_link}
           price={newprice}
           text2={starting_from}
           text3={data?.tour_day}
+          secret={secret?.section23}
         />
         <div className="grid grid-cols-12 gap-6 px-24 mb-16 2xl:px-12">
           <SinglePageGrid1
@@ -99,6 +102,7 @@ const TourSingle = ({
             headText5={payment_tour}
             what4={data?.tour_payment_policy}
             what5={data?.tour_contact}
+            secret={secret}
           />
           <div className="col-span-4">
             <div className="flex flex-col bg-[--colorWhite] shadow rounded-xl px-4 py-6 h-max">
@@ -147,15 +151,20 @@ const TourSingle = ({
         </div>
       </div>
       <div>
-        <HomeGuests
-          recommed={recommed}
-          what_our_guests_says={what_our_guests_says}
-        />
-        <Connect
-          advantages={advantages}
-          code={code}
-          follow_us_instagram={follow_us_instagram}
-        />
+        {secret?.section7 && (
+          <HomeGuests
+            recommed={recommed}
+            what_our_guests_says={what_our_guests_says}
+          />
+        )}
+
+        {secret?.section8 && (
+          <Connect
+            advantages={advantages}
+            code={code}
+            follow_us_instagram={follow_us_instagram}
+          />
+        )}
       </div>
     </section>
   );
